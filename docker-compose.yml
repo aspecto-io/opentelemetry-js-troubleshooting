@@ -1,0 +1,10 @@
+version: "3.7"
+services: 
+  otel-col:
+    container_name: otel-collector
+    image: otel/opentelemetry-collector:0.42.0
+    command: ["--config=/conf/collector-config.yml"]
+    volumes:
+      - ./collector:/conf/:rw
+    ports:
+      - 4317:4317
